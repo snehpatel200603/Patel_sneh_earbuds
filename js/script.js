@@ -12,22 +12,22 @@
     },
     {
       title: "magnetic charging",
-      text: "use the smart light indication in the back to know the battery percentage for the earbuds",
+      text: "has a fast charging trechnology with the magnatic pins so it can snap at the right place",
       image: "../img/hotspot-svgrepo-com.svg",
     },
     {
       title: "comfortable ear peace",
-      text: "use the smart light indication in the back to know the battery percentage for the earbuds",
+      text: "comfortable one size earpeace that makes the it for all to wear",
       image: "../img/hotspot-svgrepo-com.svg",
     },
     {
       title: "light weight body",
-      text: "use the smart light indication in the back to know the battery percentage for the earbuds",
+      text: "light-weight plastic body to to make it comfortable to wear for long sessions",
       image: "../img/hotspot-svgrepo-com.svg",
     },
     {
       title: "long battery life",
-      text: "use the smart light indication in the back to know the battery percentage for the earbuds",
+      text: "100mah battery for the uninteripated long hours sessions",
       image: "../img/hotspot-svgrepo-com.svg",
     },
   ];
