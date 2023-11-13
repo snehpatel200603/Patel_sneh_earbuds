@@ -1,5 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+ files.adding.dev.sp
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sneh Patel</title>
+    <link rel="stylesheet" href="css/grid.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <header class="grid-con header">
+      <h1 class="hidden">Header with logo and navigation bar</h1>
+      <div class="col-span-3 m-col-span-1 l-col-span-1 logo">Logo</div>
+
+      <!-- hamburger icon -->
+      <div class="hamburger" id="hamburger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- desktop and tablet Nav Bar -->
+      <nav
+        class="col-start-4 col-end-5 m-col-span-11 l-col-span-11 tablet desktop navbar ">
+        <h2 class="hidden">Main Navigation Bar</h2>
+        <ul class="nav-list">
+          <a class="nav-item">Home</a>
+          <a class="nav-item">About</a>
+          <a class="nav-item">Product</a>
+          <a class="nav-item">Contact</a>
+        </ul>
+      </nav>
+
+      <!-- mobile navigation bar -->
+      <nav id="navbar-mobile" class="mobile navbar-mobile">
+        <h2 class="hidden">Mobile Navigation Bar</h2>
+        <a class="nav-item">Home</a>
+        <a class="nav-item">About</a>
+        <a class="nav-item">Product</a>
+        <a class="nav-item">Contact</a>
+      </nav>
+    </header>
+    <!-- this section is for the earbuds ar model  -->
+    <section class="grid-con">
+      <h2 class="hidden">Hero Images</h2>
+
+      <model-viewer
+        disable-zoom
+        src="img/main-earbuds-2.gltf"
+        ar
+        ar-modes="webxr scene-viewer quick-look"
+        camera-controls
+        poster="img/poster.webp"
+        shadow-intensity="1"
+        id="model"
+        class="col-start-1 col-end-5 m-col-end-13">
+        <button
+          class="Hotspot"
+          slot="hotspot-1"
+          data-position="0.6627259753424614m 8.39948660834404m 4.148101010106743m"
+          data-normal="0.2309310826394264m -0.06498389860957444m -0.9707975731286533m"
+          data-visibility-attribute="visible"
+        >
+          <div class="HotspotAnnotation" id="hotspot-1"></div></button
+        ><button
+          class="Hotspot"
+          slot="hotspot-2"
+          data-position="0.8717034218252504m 1.2749375486370416m 2.6182536493400526m"
+          data-normal="-0.134157305072617m 0.284003597316087m 0.9493912650784053m"
+          data-visibility-attribute="visible"
+        >
+          <div class="HotspotAnnotation" id="hotspot-2"></div></button
+        ><button
+          class="Hotspot"
+          slot="hotspot-3"
+          data-position="3.4628269227859856m 8.025895445817468m -0.6311800889477905m"
+          data-normal="0.6703714670331137m 0.2852525086015602m -0.6850059142258464m"
+          data-visibility-attribute="visible"
+        >
+          <div class="HotspotAnnotation" id="hotspot-3"></div></button
+        ><button
+          class="Hotspot"
+          slot="hotspot-4"
+          data-position="2.0842645868429233m 4.600748928656355m 2.6397901378382214m"
+          data-normal="-0.7648132216059274m 0.17367725861279265m 0.6204006333793574m"
+          data-visibility-attribute="visible"
+        >
+          <div class="HotspotAnnotation" id="hotspot-4"></div></button
+        ><button
+          class="Hotspot"
+          slot="hotspot-5"
+          data-position="0.9943126721022m 3.7413333454090116m 3.955931073352354m"
+          data-normal="0.22864371848900678m 0.1090277492468591m -0.9673856521003834m"
+          data-visibility-attribute="visible"
+        >
+=======
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,22 +126,122 @@
       </button><button class="Hotspot" slot="hotspot-4" data-position="2.0842645868429233m 4.600748928656355m 2.6397901378382214m" data-normal="-0.7648132216059274m 0.17367725861279265m 0.6204006333793574m" data-visibility-attribute="visible">
           <div class="HotspotAnnotation" id="hotspot-4"> </div>
       </button><button class="Hotspot" slot="hotspot-5" data-position="0.9943126721022m 3.7413333454090116m 3.955931073352354m" data-normal="0.22864371848900678m 0.1090277492468591m -0.9673856521003834m" data-visibility-attribute="visible">
+main
           <div class="HotspotAnnotation" id="hotspot-5"></div>
-      </button>
-      <div class="progress-bar hide" slot="progress-bar">
+        </button>
+        <div class="progress-bar hide" slot="progress-bar">
           <div class="update-bar"></div>
+        </div>
+        <button slot="ar-button" id="ar-button">View in your space</button>
+        <div id="ar-prompt">
+          <img src="img/ar_hand_prompt.png" />
+        </div>
+      </model-viewer>
+    </section>
+
+    <!-- this section if for the other product section  -->
+<section class="grid-con">
+  <div class="col-span-full m-col-span-full l-col-span-full xl-col-span-full">
+    <h2 class="visually-hidden">Product Information</h2>
+  </div>
+  <div class="col-span-full m-col-span-6 l-col-span-6 xl-col-span-6  product-item">
+    <div class="product-content">
+      <img src="img/images.jpeg" alt="Product 1 Image" class="product-image">
+      <h3 class="product-title">Product 1</h3>
+      <p class="product-description">Description of Product 1 goes here.</p>
+      <button class="buy-now-button">Buy Now</button>
+    </div>
+  </div>
+  <div class="col-span-full m-col-span-6 l-col-span-6 xl-col-span-6  product-item">
+    <div class="product-content">
+      <img src="img/ar_icon.jpeg" alt="Product 2 Image" class="product-image">
+      <h3 class="product-title">Product 2</h3>
+      <p class="product-description">Description of Product 2 goes here.</p>
+      <button class="buy-now-button">Buy Now</button>
+    </div>
+  </div>
+</section>
+
+
+     <div class="grid-con x-ray">
+        <section class="col-span-full m-col-span-full ">
+            <h2 class="hidden">X-Ray revealer</h2>
+            <div id="mobile-tablet-view">
+                <img src="img/Untitled-1.jpg" alt="xray-earbuds">
+                 <img src="img/Untitled-2.jpg" alt="earbuds">
+            </div>
+            <div id="outerShell">
+                <div id="imageCon">
+                    <!-- xray version -->
+                    <div class="slideImage image-right"></div>
+                    <!-- rendered version -->
+                    <div class="slideImage image-left"></div>
+                    <!-- drag bar -->
+                    <div class="slideImage image-drag"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- this section is for the product informationa and brand usp  -->
+
+    <section class="grid-con product-info">
+      <div
+        class="col-span-full m-col-span-full l-col-span-full xl-col-span-full"
+      >
+        <h2>product-info</h2>
       </div>
-      <button slot="ar-button" id="ar-button">
-          View in your space
-      </button>
-      <div id="ar-prompt">
-          <img src="img/ar_hand_prompt.png">
+      <div
+        class="col-span-full m-col-span-6 l-col-span-6 xl-col-span-6 product-image"
+      >
+        <img src="img/renderimage-main.jpg" alt="product-image" />
       </div>
-    </model-viewer>  
-    <script src="script.js"></script>
-    
+      <div
+        class=" col-span-full m-col-span-6 l-col-span-6 xl-col-span-6 product-image"
+      >
+        <p>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It
+          has roots in a piece of classical Latin literature from 45 BC, making
+          it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure
+          Latin words, consectetur, from a Lorem Ipsum passage, and going
+          through the cites of the word in classical literature, discovered the
+          undoubtable source. Lorem Ipsum comes from sections 1.10.32 and
+          1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and
+          Evil) by Cicero, written in 45 BC. This book is a treatise on the
+          theory of ethics, very popular during the Renaissance. The first line
+          of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in
+          section 1.10.32. The standard chunk of Lorem Ipsum used since the
+          1500s is reproduced below for those interested. Sections 1.10.32 and
+          1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also
+          reproduced in their exact original form, accompanied by English
+          versions from the 1914 translation by H. Rackham.
+        </p>
+      </div>
+    </section>
+
+    <section class="grid-con">
+       <div class="col-span-full">
+            <canvas id="scroll-trigger"></canvas> 
+        </div>
+    </section>
+
+    <footer class="grid-con">
+      <h2 class="hidden">this is the footer of this website</h2>
+      <nav id="navbar" class="m-col-span-12 l-col-span-12 tablet desktop">
+        <h2 class="hidden">Main Mobile Nav bar</h2>
+        <a href="#">home</a>
+        <a href="#">about us</a>
+        <a href="#">contact us</a>
+        <a href="#">store locator</a>
+      </nav>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.2.0/model-viewer.min.js"></script>
     <script src="js/script.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.2.0/model-viewer.min.js"></script>
-</body>
+  </body>
 </html>
