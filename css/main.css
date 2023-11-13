@@ -14,9 +14,11 @@ body {
 }
 
 model-viewer {
-  width: 100%;
-  height: 90%;
+  height: 60vh;
   background-color: #000000;
+  grid-column: 1/-1;
+  width: 100%;
+  margin: auto;
 }
 
 .Hotspot {
@@ -132,11 +134,11 @@ model-viewer {
   height: 36px;
   line-height: 36px;
   border-radius: 18px;
-  border: 1px solid #DADCE0;
+  border: 1px solid #dadce0;
 }
 
 #ar-button:active {
-  background-color: #E8EAED;
+  background-color: #e8eaed;
 }
 
 #ar-button:focus {
@@ -179,53 +181,116 @@ model-viewer > #ar-prompt > img {
   animation: circle 4s linear infinite;
 }
 
-/* Variables for reusability */
-/* Adjust animation duration */
-/* Header styles */
+@media screen and (min-width: 730px) {
+  model-viewer {
+    height: 90vh;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .header {
-  background-color: #000000;
-  height: 80px;
-  display: flex;
-  justify-content: space-between; /* Logo to the left, navbar to the right */
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
   align-items: center;
-  padding: 0 20px;
-  color: rgb(4, 255, 0);
-  /* Navbar styles */
+  background-color: #000000;
+  padding: 1rem;
+  position: relative;
+  z-index: 10;
 }
 .header .logo {
-  font-size: 1.5rem;
+  grid-column: 1/span 3;
+  color: rgb(0, 255, 60);
+  font-size: 1.5em;
   font-weight: bold;
 }
+.header .hamburger {
+  display: none;
+  grid-column: 12;
+  justify-self: end;
+  cursor: pointer;
+}
+.header .hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: rgb(0, 255, 60);
+  margin-bottom: 5px;
+  transition: all 0.3s ease-in-out;
+}
+.header .navbar {
+  grid-column: 4/-1;
+  justify-self: end;
+}
 .header .navbar .nav-list {
-  list-style: none;
-  display: flex;
-  padding: 0;
-  margin: 0;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 2rem;
+  align-items: center;
+  list-style-type: none;
 }
 .header .navbar .nav-list .nav-item {
-  margin: 0 15px;
-  cursor: pointer;
-  transition: color 0.5s;
+  color: rgb(0, 255, 60);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s, transform 0.3s;
+}
+.header .navbar .nav-list .nav-item:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+.header .navbar-mobile {
+  display: none;
+  grid-column: 1/-1;
+  background-color: rgb(255, 255, 255);
+  padding: 1rem;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.header .navbar-mobile .nav-item {
+  color: rgb(0, 255, 60);
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  display: block;
+  transition: background-color 0.3s;
+}
+.header .navbar-mobile .nav-item:hover {
+  background-color: #ffffff;
+  color: rgb(255, 255, 255);
 }
 
-/* Animation for navbar items */
-.nav-item:hover {
-  color: #cccccc;
-  animation: scale-in 0.5s ease-in-out;
+@media (max-width: 768px) {
+  .header .hamburger {
+    display: block;
+  }
+  .header .navbar,
+  .header .navbar-mobile {
+    grid-column: 1/-1;
+  }
+}
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
 }
 
-/* Keyframes for animation */
-@keyframes scale-in {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
 }
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.navbar-mobile.active {
+  display: block;
+}
+
 .product-image img {
   grid-column: 1/-1;
   width: 100%;

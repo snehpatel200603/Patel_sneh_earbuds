@@ -1,58 +1,129 @@
-/* Variables for reusability */
-$primary-color: #000000;
-$secondary-color: #ffffff;
-$header-height: 80px;
-$animation-duration: 0.5s; /* Adjust animation duration */
+// SCSS Variables
+$primary-color: rgb(0, 255, 60); // Dark color for modern look
+$secondary-color: rgb(255, 255, 255); // White color for contrast
+$background-color: #000000; // Light background color
+$hover-color: #ffffff; // Bright color for hover effects
+$transition-time: 0.3s; // Time for transition effects
 
-/* Header styles */
+// General Style
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Header Styles
 .header {
-  background-color: $primary-color;
-  height: $header-height;
-  display: flex;
-  justify-content: space-between; /* Logo to the left, navbar to the right */
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
   align-items: center;
-  padding: 0 20px;
-  color: rgb(4, 255, 0);
+  background-color: $background-color;
+  padding: 1rem;
+  position: relative;
+  z-index: 10;
 
   .logo {
-    font-size: 1.5rem;
+    grid-column: 1 / span 3;
+    color: $primary-color;
+    font-size: 1.5em;
     font-weight: bold;
+    // Assuming the logo is text. If it's an image, adjust as necessary.
   }
 
-  /* Navbar styles */
+  // Hamburger Icon - Mobile View
+  .hamburger {
+    display: none; // Hidden by default, displayed in mobile view
+    grid-column: 12;
+    justify-self: end;
+    cursor: pointer;
+    span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: $primary-color;
+      margin-bottom: 5px;
+      transition: all $transition-time ease-in-out;
+    }
+  }
+
+  // Navigation Styles - Desktop View
   .navbar {
+    grid-column: 4 / -1;
+    justify-self: end;
+
     .nav-list {
-      list-style: none;
-      display: flex;
-      padding: 0;
-      margin: 0;
+      display: grid;
+      grid-auto-flow: column;
+      gap: 2rem; // Space between navigation items
+      align-items: center;
+      list-style-type: none;
 
       .nav-item {
-        margin: 0 15px;
-        cursor: pointer;
-        transition: color $animation-duration;
+        color: $primary-color;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        transition: color $transition-time, transform $transition-time;
+
+        &:hover {
+          color: $hover-color;
+          transform: translateY(-2px); // Lift effect on hover
+        }
+      }
+    }
+  }
+
+  // Navigation Styles - Mobile View
+  .navbar-mobile {
+    display: none; // Hidden by default, toggled by hamburger icon
+    grid-column: 1 / -1;
+    background-color: $secondary-color;
+    padding: 1rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    transition: all $transition-time ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    .nav-item {
+      color: $primary-color;
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      display: block;
+      transition: background-color $transition-time;
+
+      &:hover {
+        background-color: $hover-color;
+        color: $secondary-color;
       }
     }
   }
 }
 
-/* Animation for navbar items */
-.nav-item {
-  &:hover {
-    color: darken($secondary-color, 20%);
-    animation: scale-in $animation-duration ease-in-out;
+// Media Queries for Responsive Design
+@media (max-width: 768px) {
+  .header {
+    .hamburger {
+      display: block; // Show hamburger icon
+    }
+
+    .navbar,
+    .navbar-mobile {
+      grid-column: 1 / -1;
+    }
   }
 }
 
-/* Keyframes for animation */
-@keyframes scale-in {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
+// Hamburger Icon and Mobile Nav Active State
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+.navbar-mobile.active {
+  display: block;
 }
