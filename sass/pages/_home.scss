@@ -1,7 +1,6 @@
-#about-us {
-    margin-bottom: 40px;
-}
+@use "../abstracts/variables" as v;
 
-#founders section {
-    margin-bottom: 40px;
+body{
+    margin: auto;
+    max-width: 1200px;
 }
